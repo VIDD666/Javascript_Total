@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Temporizador 1</Title>
+    </head>
+
+<body>
+    <button onclick="comenzarTiempo()">Alarma 5 segundos</button>
+    <h1 id="textoAlarma" style="color:green">Empezar Tiempo</h1>
+
+    <script>
+    let elementoTextoAlarma = document.getElementById("textoAlarma")
+        function comenzarTiempo() {
+            setTimeout(Cincosegundos,
+            1000*5)
+           
+        }
+
+        function Cincosegundos() {
+            elementoTextoAlarma.textContent = "Se acabo el tiempo";
+            elementoTextoAlarma.style.color = "red";
+    
+            
+            
+        }
+    </script>
+</body>
+</html>
