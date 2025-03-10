@@ -8,90 +8,90 @@
 
 <body onload="comenzarTiempo(); fecha()">
 
+    <h1 id="tiempoRestante">30</h1>
+
     <audio id="gameOverSound">
         <source src="audio/gameover.mp3" type="audio/mpeg">
     </audio>
 
-<pre>
-1. Cual es el isótopo fisionable del uranio?
+    <pre>
+1. cual es la pelicula mas taquillera de la historia ?
 <input type="text" id="respuesta1">
 
-2. Cual es el elemento más abundante en el universo?
+2. Cual es el actor con mas premios oscar?
 <input type="text" id="respuesta2">
 
-3. Como se llama el isótopo del hidrógeno con un protón y un neutrón?
+3. Cual es la saga de peliculas con mas premios?
 <input type="text" id="respuesta3">
 
-4. Cual es el tipo de radiación más nociva?
+4. Cual es el premio mas importante en la actuacion?
 <input type="text" id="respuesta4">
 
-5. Cual es el tipo de reacción nuclear que ocurre en las estrellas?
+5. cual es el año de la creacion de la primera pelicula?
 <input type="text" id="respuesta5">
 
+<button onclick="reiniciarJuego()">Volver a Intentar</button>
 <button onclick="finalizarJuego()">Finalizar</button>
-<button onclick="reiniciarJuego()">Reiniciar</button>
-
-<h1 id="tiempoRestante">30</h1>
 </pre>
 
-<script>
-    let timeoutID, intervalID;
-    let tiempo = 30;
-    let elementoTiempo = document.getElementById("tiempoRestante");
-    let sonidoGameOver = document.getElementById("gameOverSound");
+    <script>
+        let tiempo = 30;
+        let timeoutID, intervalID;
+        let elementoTiempo = document.getElementById("tiempoRestante");
+        let sonidoGameOver = document.getElementById("gameOverSound");
 
-    function fecha() {
-        let date = new Date();
-        let year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-        CurrentDate = day + "/" + month + "/" + year;
-    }
+        function comenzarTiempo() {
+            tiempo = 30;  
+            elementoTiempo.textContent = tiempo; 
 
-    function comenzarTiempo() {
-        tiempo = 30;  
-        elementoTiempo.textContent = tiempo; 
+            timeoutID = setTimeout(seAcaboElTiempo, tiempo * 1000);
 
-        timeoutID = setTimeout(seAcaboElTiempo, tiempo * 1000);
+            intervalID = setInterval(() => {
+                tiempo--;
+                elementoTiempo.textContent = tiempo;
+                if (tiempo <= 0) {
+                    clearInterval(intervalID);
+                }
+            }, 1000);
+        }
 
-        intervalID = setInterval(() => {
-            tiempo--;
-            elementoTiempo.textContent = tiempo;
-            if (tiempo <= 0) {
-                clearInterval(intervalID);
-            }
-        }, 1000);
-    }
+        function fecha() {
+            let date = new Date();
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            let day = date.getDate();
+            CurrentDate = day + "/" + month + "/" + year;
+        }
 
-    function seAcaboElTiempo() {
-        alert("Game over");
-        clearInterval(intervalID);
-        sonidoGameOver.play();
-    }
+        function seAcaboElTiempo() {
+            alert("Game over");
+            clearInterval(intervalID);
+            sonidoGameOver.play();
+        }
 
-    function reiniciarJuego() {
-        location.reload();
-    }
+        function finalizarJuego() {
+            clearTimeout(timeoutID);
+            clearInterval(intervalID);
+            alert(
+                "Tu primer respuesta es: " + document.getElementById("respuesta1").value + "\n" +
+                "Tu segunda respuesta es: " + document.getElementById("respuesta2").value + "\n" +
+                "Tu tercera respuesta es: " + document.getElementById("respuesta3").value + "\n" +
+                "Tu cuarta respuesta es: " + document.getElementById("respuesta4").value + "\n" +
+                "Tu quinta respuesta es: " + document.getElementById("respuesta5").value + "\n" + "\n" +
+                "Respuestas correctas: " + "\n" + "\n" +
+                "Primera: avatar " + "\n" +
+                "Segunda: daniel day-lewis " + "\n" +
+                "Tercera: el señor de los anillos" + "\n" +
+                "Cuarta: el premio oscar" + "\n" +
+                "Quinta: 18 " + "\n" + "\n" +
+                "La fecha de hoy es: " + CurrentDate
+            );
+        }
 
-    function finalizarJuego() {
-        clearTimeout(timeoutID);
-        clearInterval(intervalID);
-        alert(
-            "Tu primer respuesta es: " + document.getElementById("respuesta1").value + "\n" +
-            "Tu segunda respuesta es: " + document.getElementById("respuesta2").value + "\n" +
-            "Tu tercera respuesta es: " + document.getElementById("respuesta3").value + "\n" +
-            "Tu cuarta respuesta es: " + document.getElementById("respuesta4").value + "\n" +
-            "Tu quinta respuesta es: " + document.getElementById("respuesta5").value + "\n" + "\n" +
-            "Respuestas correctas: " + "\n" + "\n" +
-            "Primera: U-235 " + "\n" +
-            "Segunda: Hidrógeno " + "\n" +
-            "Tercera: Deuterio " + "\n" +
-            "Cuarta: Rayos Gamma " + "\n" +
-            "Quinta: Fusión Nuclear " + "\n" + "\n" +
-            "La fecha de hoy es: " + CurrentDate
-        );
-    }
-</script>
+        function reiniciarJuego() {
+            location.reload();
+        }
+    </script>
 
 </body>
 </html>
