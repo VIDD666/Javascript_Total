@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f4;
+        }
+
+        .calculadora {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculadora">
+        <h2>Calculadora</h2>
+        <input type="number" id="num1" placeholder="Número 1">
+        <input type="number" id="num2" placeholder="Número 2">
+        <br>
+        <button onclick="calcularOperacion('+')">+</button>
+        <button onclick="calcularOperacion('-')">-</button>
+        <button onclick="calcularOperacion('*')">X</button>
+        <button onclick="calcularOperacion('/')">/</button>
+        <br>
+        <button onclick="calcularAccion('sqrt')">raiz</button>
+        <button onclick="calcularAccion('pow')">potencia</button>
+        <button onclick="calcularAccion('abs')">absoluto</button>
+        <button onclick="calcularAccion('random')">random</button>
+        <br>
+        <h3>Resultado:</h3>
+        <input type="text" id="resultado" disabled>
+        <br>
+        <button onclick="modificarResultado('round')">round</button>
+        <button onclick="modificarResultado('floor')">floor</button>
+        <button onclick="modificarResultado('ceil')">ceil</button>
+    </div>
+
+    <script>
+        function calcularOperacion(operador) {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let resultado;
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Por favor, ingresa ambos números.");
+                return;
+            }
+            switch (operador) {
+                case '+': resultado = num1 + num2; break;
+                case '-': resultado = num1 - num2; break;
+                case '*': resultado = num1 * num2; break;
+                case '/': resultado = num2 !== 0 ? num1 / num2 : "Error"; break;
+            }
+            document.getElementById("resultado").value = resultado;
+        }
+
+        function calcularAccion(tipo) {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            if (isNaN(num1)) {
+                alert("Por favor, ingresa un número en el primer campo.");
+                return;
+            }
+            let resultado;
+            switch (tipo) {
+                case 'sqrt': resultado = Math.sqrt(num1); break;
+                case 'pow': resultado = Math.pow(num1, 2); break;
+                case 'abs': resultado = Math.abs(num1); break;
+                case 'random': resultado = Math.random(); break;
+            }
+            document.getElementById("resultado").value = resultado;
+        }
+
+        function modificarResultado(tipo) {
+            let resultado = parseFloat(document.getElementById("resultado").value);
+            if (isNaN(resultado)) {
+                alert("No hay un resultado válido para modificar.");
+                return;
+            }
+            switch (tipo) {
+                case 'round': resultado = Math.round(resultado); break;
+                case 'floor': resultado = Math.floor(resultado); break;
+                case 'ceil': resultado = Math.ceil(resultado); break;
+            }
+            document.getElementById("resultado").value = resultado;
+        }
+    </script>
+</body>
+</html>
