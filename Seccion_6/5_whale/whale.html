@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>whale</title>
+</head>
+<body>
+  <h1>Contador de Vueltas</h1>
+  <button onclick="contarVueltas()">Iniciar</button>
+  <div id="salida"></div>
+
+  <script>
+    function contarVueltas() {
+      let numVueltas = prompt("¿Cuántas vueltas quieres dar?");
+      numVueltas = parseInt(numVueltas);
+      let contador = 1;
+      const salida = document.getElementById("salida");r
+
+      while (contador <= numVueltas) {
+        const parrafo = document.createElement("p");
+        parrafo.textContent = "Vuelta número " + contador;
+        contador++;
+      }
+    }
+  </script>
+</body>
+</html>
