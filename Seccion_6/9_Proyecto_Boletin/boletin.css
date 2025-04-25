@@ -1,18 +1,25 @@
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-h2 {
-    color:brown;
+ font-family: 'Times New Roman', Times, serif;
 }
 
 h3 {
-    color:darkslateblue;
+    color:brown;
 }
+
+h2 {
+ color: black;
+}           
+
+
 
 li {
     font-weight: bolder;
     color: blue;
+}
+
+
+button:hover {
+    cursor: pointer;
 }
 
 button {
@@ -22,13 +29,11 @@ button {
     color: white;
 }
 
-button:hover {
-    cursor: pointer;
-}
-
 .logo {
     text-align: center;
 }
+
+
 
 .logo img {
     height: 200px;
