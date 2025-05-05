@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Empleados</title>
+    <link rel="Css" href="Elcss.css">
+    <script src="Elscript.js" defer></script>
+</head>
+
+
+<body>
+    <h1>Registro de Empleados</h1>
+    <p>Expediente:</p>
+    <input id="txtExpediente"><br>
+    <p>Nombre:</p>
+    <input id="txtNombre"><br>
+    <p>Apellido:</p>
+    <input id="txtApellido"><br>
+    <p>Fecha de Nacimiento:</p>
+    <input type="date" id="txtNacimiento"><br>
+    <p>Cargo:</p>
+    <input id="txtCargo"><br><br>
+    <button onclick="agregarEmpleado()">Cargar empleado</button>
+    <button onclick="mostrarEmpleados()">Mostrar empleados</button>
+    
+</body>
+</html>
+<body>
+<style>
+    body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: px;
+}
+
+input, button {
+    margin: 25px 0;
+    padding: 10px;
+}
+</style>
+</body>

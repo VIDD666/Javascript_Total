@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function perro(raza, edad){
+            this.patas = 4;
+            this.raza = raza;
+            this.edad = edad;
+            this.ladrar = function (){
+                console.log("Guau")
+            };
+
+        };
+        let Simba = new perro("shih tzu",4);
+        let Reina = new perro("caniche",15);
+        let batu = new perro("cruza", 8);
+
+        function empleado(nombre, apellido, edad, cargo){
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.cargo = cargo;
+            this.presentarse = function (){
+                console.log(`mi nombre es  + ${this.nombre} ,${this.apellido}, soy ${this.cargo}, y tengo ${this.edad} años de edad`)
+
+            };
+
+        };
+
+        let miArray = [1 , 2, 3]
+        for(propiedad in miArray){
+            console.log(propiedad + " - " + miArray[propiedad])
+
+
+        }
+
+
+
+    </script>
+
+
+
+
+    
+</body>
+</html>
