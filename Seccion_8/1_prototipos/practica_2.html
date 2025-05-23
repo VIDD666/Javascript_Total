@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let estudiante = {nombre:`María`,apellido: `López`, legajo: `no se`};
+
+
+
+function prototipos(){
+
+    let estudiante1 = Object.create(estudiante);
+    console.log(estudiante1.nombre);
+    console.log(Object.getPrototypeOf(estudiante1));
+
+}
+prototipos()
+
+
+
+
+
+    </script>
+</body>
+</html>0

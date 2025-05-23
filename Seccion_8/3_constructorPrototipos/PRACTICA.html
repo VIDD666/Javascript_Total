@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+ function restaurante(nombre, direccion, ciudad){
+    this.nombre = nombre;
+    this.ciudad = ciudad;
+    this.direccion = direccion;
+ }
+
+
+        let restaurante1 = new restaurante("Olive Garden", "multiplaza", "Lindora");
+                
+        
+        let restaurante2 = Object.create(restaurante1);
+
+
+        function prototipos() {
+            console.log(restaurante2);
+            alert("Revisa la consola para ver la herenciapara ver restaurante2");
+        }
+
+        prototipos();
+
+
+</script>
+
+
+
+
+</body>
+</html>
