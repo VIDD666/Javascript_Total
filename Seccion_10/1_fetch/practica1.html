@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <div id="nombre"></div>
+       <div id="director"></div>
+        <div id="lanzamiento"></div>
+         <div id="duracion"></div>
+         <div id="actores"></div>
+         <div id="oscar"></div>
+
+    <script>
+        let datosJson;
+        fetch('pelicula.json')
+        .then(res => res.json())
+        .then((obtenerdatos) => {
+            datosJson = obtenerdatos;
+        
+        let elementoTexto = document.getElementById('nombre');
+        let elementodirector = document.getElementById('director');
+        let elementolanzamiento = document.getElementById('lanzamiento');
+        let elementoduracion = document.getElementById('duracion');
+        let elementoactores = document.getElementById('actores');
+        let elemetooscar = document.getElementById('oscar');
+        
+          elementoTexto.textContent = datosJson.nombre;
+          elementodirector.textContent = datosJson.director;
+          elementolanzamiento.textContent = datosJson.lanzamiento;
+          elementoduracion.textContent = datosJson.duracion;
+          elementoactores.textContent = datosJson.actores;
+          elemetooscar.textContent = datosJson.PremioOscar;
+        })
+        
+    </script>
+</body>
+</html>

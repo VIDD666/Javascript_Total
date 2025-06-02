@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+      <div id="nombre"></div>
+       <div id="calle"></div>
+        <div id="ciudad"></div>
+         <div id="cantidad"></div>
+         <div id="est"></div>
+        
+
+    <script>
+        let datosJson;
+        fetch('colegio.json')
+        .then(res => res.json())
+        .then((obtenerdatos) => {
+            datosJson = obtenerdatos;
+        
+        let elementoTexto = document.getElementById('nombre');
+        let elementocalle = document.getElementById('calle');
+        let elementociudad = document.getElementById('ciudad');
+        let elementocantidad = document.getElementById('cantidad');
+        let elementoest = document.getElementById('est');
+        
+        
+          elementoTexto.textContent = datosJson.nombre;
+          elementocalle.textContent = datosJson.calle;
+          elementociudad.textContent = datosJson.ciudad;
+          elementocantidad.textContent = datosJson.cantestudiantes;
+          elementoest.textContent = datosJson.estudiantes;
+        })
+        
+    </script>
+</body>
+</html>
+
+
+
+</body>
+</html>

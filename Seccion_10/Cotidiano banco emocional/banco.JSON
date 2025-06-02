@@ -1,0 +1,12 @@
+{
+    "banco": "emocional",
+    "sucursal": "Emocional city",
+    "titular": "antonella bustos",
+    "numero_cuenta": "175246108",
+    "saldo": [
+        { "moneda": "USD", "monto": 666.666 },
+        { "moneda": "EUR", "monto": 666.666 }
+    ],
+    "numero_de_tajeta": "777777777",
+    "abierto": "02/07/2024"
+}

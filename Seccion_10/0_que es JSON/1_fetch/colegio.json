@@ -1,0 +1,14 @@
+{
+ "nombre": " CTP San Rafel de Alajuela",
+ "calle": "no se",
+ "ciudad": "San Rafael",
+ "cantestudiantes": 4,
+ "estudiantes": [
+    "Mía Sanchez",
+    "Jose Pablo Gonzáles",
+    "Fabián Rojas",
+    "Nathalie Rivas"
+ ]
+
+
+}

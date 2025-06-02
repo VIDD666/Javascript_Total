@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Banco</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ff580a;
+            margin: 15;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff0000;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        img {
+            width: 100px;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        h2, h3 {
+            color: #343a40;
+            text-align: center;
+        }
+        .saldo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .saldo p {
+            margin: 0;
+        }
+        .saldo img {
+            width: 25px;
+            height: 25px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body onload="cargarResumen()">
+    <div class="container">
+        <h1>Banco Emocional</h1>
+        <img src="logo.png" alt="Logo del Banco">
+        <h2 id="nombreBanco"></h2>
+        <h3 id="sucursal"></h3>
+        <p>Titular: <span id="titular"></span></p>
+        <p>Número de Cuenta: <span id="numeroCuenta"></span></p>
+        <div class="saldo">
+            <p>Saldo en USD: <span id="saldoUSD"></span> <img src="usd.png" alt="USD"></p>
+            <p>Saldo en EUR: <span id="saldoEUR"></span> <img src="euro.png" alt="EUR"></p>
+        </div>
+        <p>CBU: <span id="cbu"></span></p>
+        <p>Fecha de Apertura: <span id="fechaApertura"></span></p>
+    </div>
+   
+
+    
+    <script>
+        function cargarResumen() {
+            fetch('banco.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar el archivo JSON');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+            
+                    document.getElementById('nombreBanco').textContent = data.banco;
+                    document.getElementById('sucursal').textContent = data.sucursal;
+                    document.getElementById('titular').textContent = data.titular;
+                    document.getElementById('numeroCuenta').textContent = data.numero_cuenta;
+                    document.getElementById('saldoUSD').textContent = data.saldo[0].monto.toFixed(2);
+                    document.getElementById('saldoEUR').textContent = data.saldo[1].monto.toFixed(2);
+                    document.getElementById('cbu').textContent = data.numero_de_tajeta;
+                    document.getElementById('fechaApertura').textContent = data.abierto;
+                })
+                .catch(error => {
+                    console.error('Hubo un problema con la carga:', error);
+                });
+        }
+    </script>
+</body>
+</html>

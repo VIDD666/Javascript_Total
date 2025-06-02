@@ -1,0 +1,12 @@
+{
+    "nombre":  "nombre: Mujercitas",
+    "director": " director: no se",
+    "lanzamiento": 2018,
+    "duracion" : 125,
+    "actores": [
+        "Timothee Chalamemt",
+        "Cindy Lu"
+    ],
+    "PremioOscar": false
+
+}
