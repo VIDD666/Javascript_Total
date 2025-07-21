@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>práctica 1</h2>
+ <script>
+    let url = 'datos.json';
+
+    async function request(url) {
+        try {
+            let respuesta = await fetch(url);
+            let datos = await respuesta.json();
+            console.log(datos); // Esto imprimirá los datos en la consola
+            return datos;
+        } catch (error) {
+            console.error('Ocurrió un error:', error);
+        }
+    }
+
+    request(url);
+</script>
+
+
+</body>
+</html>

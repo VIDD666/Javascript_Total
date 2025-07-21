@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Conversión de dólares a colones(ejemplo con error)</h2>
+<script>
+    let dolar;
+    let montodolares = 100;
+
+    fetch('https://open.er-api.com/v6/latest/USD')
+    .then(res => res.json())
+    .then(data => {
+        dolar = data.rates.CRC; //VALOR DEL DÓLAR EN COLONES
+        console.log("Tasa obtenida: ", dolar);
+    });
+    // esto se ejecuta antes de tener respuesta del fetch
+    let colones = montodolares * dolar;
+    console.log( `${montodolares} dolares son aproximadamente ${colones} colones`)
+</script>
+
+
+
+</body>
+</html>

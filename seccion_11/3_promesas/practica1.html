@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      let miPromesa = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                let resultado = Boolean;
+                if(resultado = false){
+                    reject("error")
+                }
+                else{
+                    resolve("correcto")
+                }
+            })
+        })
+
+        miPromesa.then(function(result){
+            console.log(result);
+        }).catch(function(error){
+            console.log(error)
+        })
+    </script>
+</body>
+</html>
