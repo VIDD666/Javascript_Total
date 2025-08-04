@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        async function actualizarPost(id, nuevoTitulo, nuevoContenido) {
+            try {
+                let respuesta =
+                 await fetch('https://api.restful-api.dev/objects/${id}',
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            name: nuevoTitulo,
+                            data: nuevoContenido
+                        }),
+                    });
+                    if(!respuesta.ok){
+                        throw new Error("no se pudo actualizar: " + respuesta.estatusText)
+                    }
+                    let data = await respuesta.json();
+                    console.log("registro actualizado: ", data);
+
+            }   catch(error){
+                console.error("error al actualizar el registro" + error)
+            }
+            
+        }
+    </script>
+</body>
+
+</html>

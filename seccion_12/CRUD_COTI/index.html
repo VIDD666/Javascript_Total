@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario de Productos</title>
+    <link rel="stylesheet" href="misEstilos.css">
+    <script src="misScripts.js" defer></script>
+</head>
+<body>
+    <h1>Administración de Inventario</h1>
+
+    <section class="agregar">
+        <h2>Añadir Nuevo Producto</h2>
+        <div class="grupo-formulario">
+            <label for="nombreProducto">Nombre:</label>
+            <input type="text" id="nombreProducto" placeholder="Nombre del nuevo producto" />
+        </div>
+        <div class="grupo-formulario">
+            <label for="modeloProducto">Modelo:</label>
+            <input type="text" id="modeloProducto" placeholder="Modelo del nuevo producto" />
+        </div>
+        <div class="grupo-formulario">
+            <label for="colorProducto">Color:</label>
+            <input type="text" id="colorProducto" placeholder="Color del nuevo producto" />
+        </div>
+        <div class="grupo-formulario">
+            <label for="almacenamientoProducto">Almacenamiento:</label>
+            <input type="text" id="almacenamientoProducto" placeholder="Almacenamiento del nuevo producto" />
+        </div>
+        <div class="grupo-formulario">
+            <label for="procesadorProducto">Procesador:</label>
+            <input type="text" id="procesadorProducto" placeholder="Procesador del nuevo producto" />
+        </div>
+        <button id="btnAgregar">Añadir Producto</button>
+    </section>
+
+    <section class="consulta">
+        <h2>Búsqueda de Producto</h2>
+        <div class="grupo-formulario">
+            <label for="idProducto">ID del Producto:</label>
+            <input type="number" id="idProducto" placeholder="Ingrese el ID del producto" />
+            <button id="btnBuscar">Consultar</button>
+        </div>
+        <div id="resultadoBusqueda" style="display: none;">
+            <h3>Detalles del Producto:</h3>
+            <p><strong>ID:</strong> <span id="detalleId"></span></p>
+            <p><strong>Nombre:</strong> <span id="detalleNombre"></span></p>
+            <p><strong>Modelo:</strong> <span id="detalleModelo"></span></p>
+            <p><strong>Color:</strong> <span id="detalleColor"></span></p>
+            <p><strong>Almacenamiento:</strong> <span id="detalleAlmacenamiento"></span></p>
+            <p><strong>Procesador:</strong> <span id="detalleProcesador"></span></p>
+        </div>
+    </section>
+
+    <section class="productos">
+        <h2>Catálogo de Productos</h2>
+        <table class="tabla-productos" id="tablaProductos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Almacenamiento</th>
+                    <th>Procesador</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody id="productosLista"></tbody>
+        </table>
+    </section>
+</body>
+</html>
